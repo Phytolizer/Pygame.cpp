@@ -21,7 +21,7 @@ int main(int /*argc*/, char** /*argv*/)
 
     TTF_Font* font = mysdl::CheckPointer(TTF_OpenFont("assets/font/Pixeltype.ttf", 50));
     const SmartTexture textTexture{renderer,
-                                   SmartSurface{TTF_RenderText_Blended(font, "My game", SDL_Color{0, 255, 0, 255})}};
+                                   SmartSurface{TTF_RenderText_Blended(font, "My game", SDL_Color{0, 0, 0, 255})}};
     const SmartTexture skyTexture{renderer, SmartSurface{IMG_Load("assets/graphics/Sky.png")}};
     const SmartTexture groundTexture{renderer, SmartSurface{IMG_Load("assets/graphics/ground.png")}};
 
