@@ -26,6 +26,8 @@ add_executable(
     "SmartTexture.hpp"
     "SmartWindow.cpp"
     "SmartWindow.hpp"
+    "Sprite.cpp"
+    "Sprite.hpp"
 )
 
 # Depend on assets being copied.

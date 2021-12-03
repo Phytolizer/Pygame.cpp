@@ -2,6 +2,7 @@
 
 #include "MySDL.hpp"
 #include "SmartTexture.hpp"
+#include "Sprite.hpp"
 
 void SmartRenderer::cleanup() const
 {
@@ -65,4 +66,9 @@ void SmartRenderer::present() const
 void SmartRenderer::copy(const SmartTexture& texture, const SDL_Rect* src, const SDL_Rect* dst) const
 {
     mysdl::CheckCode(SDL_RenderCopy(m_renderer, texture.get(), src, dst));
+}
+
+void SmartRenderer::copy(const Sprite& spr) const
+{
+    copy(spr.getTexture(), nullptr, &spr.getRect());
 }

@@ -6,6 +6,7 @@
 #include "SmartRenderer.hpp"
 #include "SmartSurface.hpp"
 #include "SmartTexture.hpp"
+#include "Sprite.hpp"
 
 #include <SDL.h>
 #include <SDL_image.h>
@@ -24,6 +25,12 @@ int main(int /*argc*/, char** /*argv*/)
                                    SmartSurface{TTF_RenderText_Blended(font, "My game", SDL_Color{0, 0, 0, 255})}};
     const SmartTexture skyTexture{renderer, SmartSurface{IMG_Load("assets/graphics/Sky.png")}};
     const SmartTexture groundTexture{renderer, SmartSurface{IMG_Load("assets/graphics/ground.png")}};
+    Sprite snail{SmartTexture{renderer, SmartSurface{IMG_Load("assets/graphics/snail/snail1.png")}}};
+    snail.setMidBottom(600, 300);
+    int snailXPos = 600;
+
+    Sprite player{SmartTexture{renderer, SmartSurface{IMG_Load("assets/graphics/player/player_walk_1.png")}}};
+    player.setMidBottom(80, 300);
 
     bool run = true;
     while (run)
@@ -50,6 +57,15 @@ int main(int /*argc*/, char** /*argv*/)
         renderer.copy(groundTexture, nullptr, &groundDst);
         SDL_Rect textDst = {300, 50, textTexture.width(), textTexture.height()};
         renderer.copy(textTexture, nullptr, &textDst);
+
+        snailXPos -= 4;
+        if (snailXPos < -100)
+        {
+            snailXPos = 800;
+        }
+        snail.setMidBottom(snailXPos, 300);
+        renderer.copy(snail);
+        renderer.copy(player);
 
         renderer.present();
     }

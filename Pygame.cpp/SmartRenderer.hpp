@@ -5,6 +5,7 @@
 #include <SDL.h>
 
 class SmartTexture;
+class Sprite;
 
 class SmartRenderer
 {
@@ -26,4 +27,5 @@ class SmartRenderer
     void clear() const;
     void present() const;
     void copy(const SmartTexture& texture, const SDL_Rect* src, const SDL_Rect* dst) const;
+    void copy(const Sprite& spr) const;
 };
