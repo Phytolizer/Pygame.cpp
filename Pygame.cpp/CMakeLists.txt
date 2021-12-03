@@ -10,7 +10,7 @@ add_custom_target(
 )
 
 # Add source to this project's executable.
-add_executable (Pygame.cpp WIN32 "PygameCpp.cpp" "MySDL.hpp" "MySDL.cpp" "SmartTexture.hpp" "SmartSurface.hpp" "SmartSurface.cpp" "SmartTexture.cpp" "GraphicsContext.hpp" "GraphicsContext.cpp"  "SmartRenderer.cpp" "SmartRenderer.hpp" "SmartWindow.cpp" "SmartWindow.hpp")
+add_executable (Pygame.cpp WIN32 "Pygame.cpp" "MySDL.hpp" "MySDL.cpp" "SmartTexture.hpp" "SmartSurface.hpp" "SmartSurface.cpp" "SmartTexture.cpp" "GraphicsContext.hpp" "GraphicsContext.cpp"  "SmartRenderer.cpp" "SmartRenderer.hpp" "SmartWindow.cpp" "SmartWindow.hpp")
 
 # Depend on assets being copied.
 add_dependencies("Pygame.cpp" "copy_assets")
